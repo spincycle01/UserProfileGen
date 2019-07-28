@@ -10,14 +10,7 @@ btn.addEventListener('click', () => {
   fetch(url)
     .then(handleErrors)
     .then(response => response.json())
-    .then(data => {
-      const user = data.results[0];
-      img.src = getPic(user);
-      name.innerHTML = getName(user);
-      username.innerHTML = getUsername(user);
-      email.innerHTML = getEmail(user);
-      city.innerHTML = getCity(user);
-    })
+    .then(updateProfile)
     .catch(error => {
       //check if connection error
       console.log(`there is a connection problem \n${error}`);
@@ -32,7 +25,7 @@ const handleErrors = response => {
   return response;
 };
 
-function getName(user) {
+const getName = user => {
   let first = user['name']['first'];
   let last = user['name']['last'];
 
@@ -40,20 +33,21 @@ function getName(user) {
   last = last[0].toUpperCase() + last.slice(1);
 
   return `${first} ${last}`;
-}
+};
 
-function getUsername(user) {
-  return user['login']['username'];
-}
+const getUsername = user => user['login']['username'];
 
-function getEmail(user) {
-  return user['email'];
-}
+const getEmail = user => user['email'];
 
-function getPic(user) {
-  return user['picture']['medium'];
-}
+const getPic = user => user['picture']['medium'];
 
-function getCity(user) {
-  return user['location']['city'];
-}
+const getCity = user => user['location']['city'];
+
+const updateProfile = data => {
+  const user = data.results[0];
+  img.src = getPic(user);
+  name.innerHTML = getName(user);
+  username.innerHTML = getUsername(user);
+  email.innerHTML = getEmail(user);
+  city.innerHTML = getCity(user);
+};
