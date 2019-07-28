@@ -6,11 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>User Profile Generator</title>
+  <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 
 <body>
 
+  <div class='outerContainer'>
+    <div class="container">
+
+      <div class="box" id="headerDiv">
+        <h1>Random User Generator</h1>
+      </div>
+      <div class="box" id="user-profile">
+        <img src="https://timedotcom.files.wordpress.com/2016/04/jon-snow-game-of-thrones.jpeg" alt="" id="avatar">
+        <div id="description">
+          <div id='fullname'>John Snow</div>
+          <div id="username">kingofnorth</div>
+          <div>Email: <span id="email">jon@hotmail.com</span></div>
+          <div>City: <span id="city">Winterfell</span></div>
+        </div>
+      </div>
+      <div class="box" id="footer">
+        <button id="btn">Next User!</button>
+      </div>
+    </div> <!-- end of container-->
+  </div> <!-- end of outer container-->
 </body>
 <script src="app.js"></script>
 
